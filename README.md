@@ -1,2 +1,2 @@
 # vinyl-ducky-nl
-the repo for the CI/CD
+This repo is linked to the CI/CD everithing in master gets deployed
