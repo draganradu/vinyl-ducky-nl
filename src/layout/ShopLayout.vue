@@ -1,16 +1,16 @@
 <script setup lang="ts">
 // 0.0.9 ----------------------------------------
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 import { useHead } from '@unhead/vue'
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+// import { useRouter } from 'vue-router'
+// import { useStore } from 'vuex'
 import Container from '../components/scaffolding/Container.vue'
 import Footer from "../components/ShopFooter.vue"
 import Sidebar from "../components/Sidebar.vue"
 
 // hooks ----------------------------------------
-const store = useStore()
-const router = useRouter()
+// const store = useStore()
+// const router = useRouter()
 
 // store / props / params -----------------------
 const props = defineProps<{
@@ -23,15 +23,15 @@ const props = defineProps<{
 }>()
 
 // events ---------------------------------------
-onMounted(async () => {
-  if(props.onlyOnDevelop && !store.state.user.isDebug) {
-    router.push('/404')
-  }
+// onMounted(async () => {
+//   if(props.onlyOnDevelop && !store.state.user.isDebug) {
+//     router.push('/404')
+//   }
 
-  if (props.forceCallProducts) {
-    await store.dispatch('shop/callProducts')
-  }
-})
+//   if (props.forceCallProducts) {
+//     await store.dispatch('shop/callProducts')
+//   }
+// })
 
 // SEO ----------------------------------------
 if (props.title || props.description) {
