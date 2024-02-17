@@ -1,3 +1,0 @@
-# Stack
-
-Vue 3
