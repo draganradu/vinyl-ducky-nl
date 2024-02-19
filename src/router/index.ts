@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingPageView from "../views/LandingPage/LandingPage.vue"
+import LandingPageView from "../views/LandingPage/LandingPageView.vue"
+import Help from "../views/Helpers/HelpersView.vue"
 
 export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,5 +9,12 @@ export default createRouter({
       path: '/',
       name: 'home',
       component: LandingPageView
-    }]
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: Help
+    },
+  
+  ]
 })
