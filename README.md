@@ -1,4 +1,11 @@
-# vinyl-ducky-nl
+# vinylDucky.nl
 This repo is linked to the CI/CD everithing in master gets deployed
 
-TEST
+## Docs
+[Deploy](documents/deploy.md)
+[Page Structure](documents/page-structure.md)
+[stack](documents/stack.md)
+[style](document/style.md)
+
+
+

@@ -1,30 +1,25 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import InternalError from './views/Helpers/InternalErrorView.vue';
+import Loading from './views/Helpers/LoadingView.vue';
+import Maintenance from './views/Helpers/MaintenanceView.vue';
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+import { type isStateApp } from './store/app/types';
+
+// store / props / params -----------------------
+const store = useStore()
+
+// data ---------------------------------------
+const is = computed<isStateApp>(() => store.state['app'].is)
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="modal-container">
+    <Maintenance v-if="is.maintenance" />
+    <InternalError v-else-if="is.error" />
+    <Loading v-else-if="is.loading" />
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <RouterView class="bg-white text-black" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
