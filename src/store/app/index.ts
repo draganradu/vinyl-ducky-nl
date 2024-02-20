@@ -3,9 +3,9 @@ export default {
   state: {
     is: {
       dev: true,
-      maintenance: true,
-      loading: true,
-      error: true,
+      loading: false,
+      error: false,
+      maintenance: false,
     }
   },
   getters: {},

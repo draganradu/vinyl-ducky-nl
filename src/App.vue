@@ -6,20 +6,57 @@ import { useStore } from 'vuex'
 import { computed } from 'vue'
 import { type isStateApp } from './store/app/types';
 
-// store / props / params -----------------------
+// hooks ----------------------------------------
 const store = useStore()
 
-// data ---------------------------------------
+// methods --------------------------------------
+const isAsString = (isInternal: isStateApp): string => {
+  let temp = "no-modal"
+  Object.keys(isInternal).forEach((e: string) => {
+    if (isInternal[e] === true) {
+      console.log(e)
+      temp = e
+    }
+
+  })
+  return temp
+}
+
+
+// store / props / params -----------------------
 const is = computed<isStateApp>(() => store.state['app'].is)
 
 </script>
 
 <template>
-  <div id="modal-container">
+  <div id="modal-container" :class="isAsString(is)">
     <Maintenance v-if="is.maintenance" />
     <InternalError v-else-if="is.error" />
     <Loading v-else-if="is.loading" />
   </div>
   <RouterView class="bg-white text-black" />
 </template>
+
+<style lang="scss">
+.no-modal {
+  display: none;
+}
+#modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10vw;
+
+  .modal-inner {
+    background-color: white;
+    padding: 50px;
+    border: 1px solid black;
+    position: relative;
+  }
+}
+</style>
 
