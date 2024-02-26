@@ -3,7 +3,7 @@ import InternalError from './views/Helpers/InternalErrorView.vue';
 import Loading from './views/Helpers/LoadingView.vue';
 import Maintenance from './views/Helpers/MaintenanceView.vue';
 import { useStore } from 'vuex'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { type isStateApp } from './store/app/types';
 
 // hooks ----------------------------------------
@@ -23,6 +23,10 @@ const isAsString = (isInternal: isStateApp): string => {
 }
 
 
+onMounted(async () => {
+  await store.dispatch('app/callControl')
+})
+
 // store / props / params -----------------------
 const is = computed<isStateApp>(() => store.state['app'].is)
 
@@ -41,6 +45,7 @@ const is = computed<isStateApp>(() => store.state['app'].is)
 .no-modal {
   display: none;
 }
+
 #modal-container {
   position: fixed;
   top: 0;
