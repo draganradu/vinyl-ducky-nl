@@ -1,3 +1,5 @@
+![vinyl ducky nl logo](./documents/vinyl-ducky-nl-logo-git.jpg)
+
 # vinylDucky.nl
 This repo is linked to the CI/CD everithing in master gets deployed
 
