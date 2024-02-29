@@ -4,7 +4,7 @@ import Temp from "./LandingPageTemp.vue"
 </script>
 
 <template>
-  <ShopLayout id="main" class="temp">
+  <ShopLayout id="main" class="temp" :forceCallProducts="false">
     <Temp />
   </ShopLayout>
 </template>

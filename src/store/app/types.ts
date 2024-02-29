@@ -6,5 +6,9 @@ export interface isStateApp {
 }
 
 export interface appType {
+    localDBFirst: boolean,
     is: isStateApp
+    socialMedia: { [key: string]: string }
+    companyInfo: { [key: string]: string }
+    internationalization?: { [key in "en" | "nl"]: { [key: string]: string } }
 }
