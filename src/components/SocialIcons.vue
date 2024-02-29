@@ -2,6 +2,9 @@
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
+// hooks ----------------------------------------
+const store = useStore()
+
 // methods --------------------------------------
 const iconSelector = (e: string) => {
   const listIcons = {
@@ -20,18 +23,24 @@ const iconSelector = (e: string) => {
   return listIcons['default']
 }
 
-// hooks ----------------------------------------
-const store = useStore()
-
-// methods --------------------------------------
+const showRule = (e: string) => {
+  if (props.hide && e[0] === props.hide) {
+    return false
+  }
+  return true
+}
 
 // store / props / params -----------------------
+const props = defineProps<{
+  hide?: string
+}>()
+
 const Icons = computed<{ [key: string]: string }>(() => store.state['app'].socialMedia)
 </script>
 
 <template>
   <div class="text-center">
-    <span v-for="(i, k) in Icons" :key="k" class="icon">
+    <span v-for="(i, k) in Icons" :key="k" class="icon" v-show="showRule(k as string)">
       <a target="_blank" :href="i" :title="k.toLocaleString()">
         <i :class="['bi', iconSelector(k.toString())]"></i>
       </a>
@@ -40,7 +49,7 @@ const Icons = computed<{ [key: string]: string }>(() => store.state['app'].socia
 </template>
 
 <style lang="scss" scoped>
-.icon + .icon {
+.icon+.icon {
   display: inline-block;
   padding-left: 10px;
 }

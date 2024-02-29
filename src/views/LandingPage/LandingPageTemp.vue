@@ -33,7 +33,7 @@ const app = computed<appType>(() => store.state['app'])
         We are happy to have a chat.
       </p>
       <hr />
-      <SocialIcons />
+      <SocialIcons hide="_"/>
       <hr />
       <p class="mb-0" v-for="i in ['KVK', 'VAT', 'IBAN']" :key="i"><b>{{ i }}:</b> {{ app.companyInfo[i] }}</p>
     </div>
