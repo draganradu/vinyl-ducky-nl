@@ -53,7 +53,7 @@ const app = computed<appType>(() => store.state['app'])
   }
 
   .bottom-text {
-    max-width: 250px;
+    max-width: 300px;
     margin: auto;
     text-align: left;
 

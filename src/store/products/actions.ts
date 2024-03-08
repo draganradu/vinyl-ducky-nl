@@ -3,6 +3,7 @@ import { db } from "../../firebase/db"
 import { dbName } from "./types"
 
 export const callProducts = async (context: any, payload: number) => {
+  console.log("xx")
   const collecttionDB = collection(db, dbName.storeProducts)
 
   const queryDB = query(collecttionDB, where("title", "!=", "null"), limit(payload || 100))
