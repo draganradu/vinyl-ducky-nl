@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 img:not(.overflow) {
     max-width: 100%;
 }

@@ -9,6 +9,7 @@ const store = useStore()
 const products = computed<{ [key: string]: string }>(() => store.state['products'].products)
 
 </script>
+
 <template>
   <div id="grid-img" class="row">
     <div class="box col-md-4" v-for="(i, k) in products" :key="k">
@@ -18,9 +19,11 @@ const products = computed<{ [key: string]: string }>(() => store.state['products
 </template>
 
 <style lang="scss" scoped>
-#grid-img {
-  position: relative;
-  left: 80px;
+@media (min-width: 992px) {
+  #grid-img {
+    position: relative;
+    left: 10vw;
+  }
 }
 
 .box {
@@ -30,17 +33,25 @@ const products = computed<{ [key: string]: string }>(() => store.state['products
   .inner {
     width: 100%;
     height: 100%;
-    filter: grayscale(1);
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
-    opacity: 0.5;
+   
   }
 
   &:hover {
     .inner {
       opacity: 1;
       filter: grayscale(0);
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .box {
+    .inner {
+      filter: grayscale(1);
+      opacity: 0.5;
     }
   }
 }
