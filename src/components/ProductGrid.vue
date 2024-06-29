@@ -13,7 +13,9 @@ const products = computed<{ [key: string]: string }>(() => store.state['products
 <template>
   <div id="grid-img" class="row">
     <div class="box col-md-4" v-for="(i, k) in products" :key="k">
-      <div class="inner" :style="`background-image: url('https://vinylducky.nl/product-img/${i.img[0]}')`"></div>
+      <RouterLink to="/coming-soon">
+        <div class="inner" :style="`background-image: url('https://vinylducky.nl/product-img/${i.img[0]}')`"></div>
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -36,7 +38,7 @@ const products = computed<{ [key: string]: string }>(() => store.state['products
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
-   
+
   }
 
   &:hover {

@@ -5,3 +5,7 @@ body {
 img:not(.overflow) {
     max-width: 100%;
 }
+
+a {
+    color: inherit;
+}

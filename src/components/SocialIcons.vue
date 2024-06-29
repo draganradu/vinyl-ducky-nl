@@ -13,6 +13,8 @@ const iconSelector = (e: string) => {
     "behance": "bi-behance",
     "linkedin": "bi-linkedin",
     "youtube": "bi-youtube",
+    "whatsapp": "bi-whatsapp",
+    "jira": "bi-grid-1x2",
     "default": "bi-balloon-heart",
   }
 
@@ -41,8 +43,8 @@ const Icons = computed<{ [key: string]: string }>(() => store.state['app'].socia
 <template>
   <div class="text-center">
     <span v-for="(i, k) in Icons" :key="k" class="icon" v-show="showRule(k as string)">
-      <a target="_blank" :href="i" :title="k.toLocaleString()">
-        <i :class="['bi', iconSelector(k.toString())]"></i>
+      <a target="_blank" :href="i" :title="k.toLocaleString().replace(/[^a-z']/g, '')">
+        <i :class="['bi', iconSelector(k.toString().replace(/[^a-z']/g, ''))]"></i>
       </a>
     </span>
   </div>
