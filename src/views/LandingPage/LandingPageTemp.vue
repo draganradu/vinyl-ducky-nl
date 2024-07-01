@@ -29,11 +29,12 @@ const app = computed<appType>(() => store.state['app'])
 
     <div class="bottom-text">
       <p>We are currently held up by a new project, if you need to contact us you email us at <a
-          href="mailto:yellow@vinylducky.nl">yellow@vinylducky.nl</a> or by phone <a href="tel:0648459980">0648459980</a>.
-        We are happy to have a chat.
+          href="mailto:yellow@vinylducky.nl">yellow@vinylducky.nl</a> or by phone <a
+          href="tel:0648459980">0648459980</a>.
+        We are happy to have a chat on any <RouterLink to="/contact">network</RouterLink> .
       </p>
       <hr />
-      <SocialIcons />
+      <SocialIcons hide="_" />
       <hr />
       <p class="mb-0" v-for="i in ['KVK', 'VAT', 'IBAN']" :key="i"><b>{{ i }}:</b> {{ app.companyInfo[i] }}</p>
     </div>
@@ -53,13 +54,9 @@ const app = computed<appType>(() => store.state['app'])
   }
 
   .bottom-text {
-    max-width: 250px;
+    max-width: 300px;
     margin: auto;
     text-align: left;
-
-    a {
-      color: inherit;
-    }
   }
 
   .center {
